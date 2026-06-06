@@ -1,13 +1,68 @@
+:root {
+  --color-background: #f5f7fb;
+  --color-surface: #fff;
+  --color-primary: #2979ff;
+  --color-primary-dark: #1565c0;
+  --color-accent: #ffb300;
+  --color-text: #22292f;
+  --color-muted: #697386;
+  --color-border: #e3e8ee;
+  --color-error: #d32f2f;
+  --color-success: #388e3c;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+hr {
+  border-color: var(--color-border);
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--color-primary-dark);
 }
