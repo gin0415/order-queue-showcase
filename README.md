@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+# Restaurant Order Management App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple restaurant order management system built with React, Redux, and styled-components. It allows different user roles (Manager, User, VIP) to interact with orders and manage bots.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Role Selection**: Choose your role as Manager, User, or VIP.
+- **Order Placement**:
+  - Users can place normal orders.
+  - VIPs can place VIP orders.
+- **Bots Management** (Manager only):
+  - Add or remove bots that process pending orders.
+- **Order Status**:
+  - View all pending orders and their statuses.
+  - VIP orders are highlighted.
+  - See which bot is processing an order (if any).
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Node.js](https://nodejs.org/) (version 12+)
+- [npm](https://www.npmjs.com/)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository and install dependencies:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Running the App
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+```
 
-### `npm run eject`
+This will open the app at [http://localhost:3000](http://localhost:3000) in your default browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The app will reload automatically if you make changes to the code.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run tests in interactive watch mode:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm test
+```
 
-## Learn More
+### Building for Production
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To build the app for production:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
+
+This will create a `build` folder with optimized production-ready files.
+
+## Usage Steps
+
+1. **Select Your Role:** At the top of the app, choose Manager, User, or VIP.
+2. **Place Orders:**
+   - As a User, click "New Normal Order".
+   - As a VIP, click "New VIP Order".
+   - As a Manager, you can also add or remove bots.
+3. **Manage Bots:** If you're a Manager, use the +Bot and -Bot buttons.
+4. **View & Track Orders:** Pending orders, their type, and processing status are shown in the application.
+
+---
+
+Feel free to customize and expand functionality as needed!
