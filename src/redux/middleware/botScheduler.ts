@@ -11,17 +11,16 @@ let isReconciling = false;
 export const botScheduler: Middleware<{}, RootState> = (store) => (next) => (action: any) => {
     if (botAction.removeBot.match(action)) {
         const prevState = store.getState();
-        const bots = prevState.bot.bots;
-        const newestBot = bots.length > 0 ? bots[bots.length - 1] : null;
-        if (newestBot) {
-            const timer = timers.get(newestBot.id);
+        const targetBot = prevState.bot.bots.find((b) => b.id === action.payload.botId);
+        if (targetBot) {
+            const timer = timers.get(targetBot.id);
             if (timer) {
                 clearTimeout(timer);
-                timers.delete(newestBot.id);
+                timers.delete(targetBot.id);
             }
-            if (newestBot.orderId !== null) {
+            if (targetBot.orderId !== null) {
                 store.dispatch(
-                    orderAction.returnOrderToPending({ orderId: newestBot.orderId }),
+                    orderAction.returnOrderToPending({ orderId: targetBot.orderId }),
                 );
             }
         }

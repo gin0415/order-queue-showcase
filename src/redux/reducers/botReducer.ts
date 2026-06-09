@@ -28,8 +28,10 @@ const botReducer = createReducer(initialState, (builder) => {
             });
             state.nextId += 1;
         })
-        .addCase(botAction.removeBot, (state) => {
-            state.bots.pop();
+        .addCase(botAction.removeBot, (state, action) => {
+            const index = state.bots.findIndex((b) => b.id === action.payload.botId);
+            if (index === -1) return;
+            state.bots.splice(index, 1);
         })
         .addCase(botAction.setBotBusy, (state, action) => {
             const bot = state.bots.find((b) => b.id === action.payload.botId);

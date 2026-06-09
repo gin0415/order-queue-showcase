@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { botAction } from '../redux/actions/botAction';
 import { orderAction } from '../redux/actions/orderAction';
 import { ORDER_TYPE } from '../redux/constants/orderConstant';
-import { botsSelector } from '../redux/selectors/botSelector';
+import { botsSelector, botToRemoveSelector } from '../redux/selectors/botSelector';
 import { isManagerSelector, isUserSelector, isVipSelector } from '../redux/selectors/roleSelector';
 
 const ControlsContainer = styled.section`
@@ -34,6 +34,7 @@ function OrderControls() {
     const isVip = useSelector(isVipSelector);
     const isManager = useSelector(isManagerSelector);
     const bots = useSelector(botsSelector);
+    const botToRemove = useSelector(botToRemoveSelector);
 
     if (!isUser && !isVip && !isManager) return null;
 
@@ -59,7 +60,11 @@ function OrderControls() {
                         + Bot
                     </ControlButton>
                     <ControlButton
-                        onClick={() => dispatch(botAction.removeBot())}
+                        onClick={() => {
+                            if (botToRemove) {
+                                dispatch(botAction.removeBot({ botId: botToRemove.id }));
+                            }
+                        }}
                         disabled={bots.length === 0}
                     >
                         - Bot
